@@ -1,9 +1,11 @@
 import React from 'react';
-import {BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
+import {BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './styles/App.css';
 
 import Header from './components/header';
 import Welcome from './components/welcome';
+import BeltListDashboard from './components/belts/belt_list_dashboard';
+import Technique from './components/techniques/technique';
 import NoMatch from './no_match';
 
 export default () =>
@@ -11,7 +13,9 @@ export default () =>
     <div>
       <Header />
       <Switch>
-        <Route path="/" component={Welcome} />
+        <Route exact={true} path="/" component={Welcome} />
+        <Route path="/beltlist" component={BeltListDashboard} />
+        <Route path="/technique/:techId" component={Technique} />
         <Route component={NoMatch} />
       </Switch>
     </div>
