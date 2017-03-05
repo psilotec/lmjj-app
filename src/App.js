@@ -1,12 +1,18 @@
-import React, { Component } from 'react';
+import React from 'react';
+import {BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 import './styles/App.css';
 
-class App extends Component {
-  render() {
-    return (
-      <div>Component</div>
-    );
-  }
-}
+import Header from './components/header';
+import Welcome from './components/welcome';
+import NoMatch from './no_match';
 
-export default App;
+export default () =>
+  <Router>
+    <div>
+      <Header />
+      <Switch>
+        <Route path="/" component={Welcome} />
+        <Route component={NoMatch} />
+      </Switch>
+    </div>
+  </Router>
