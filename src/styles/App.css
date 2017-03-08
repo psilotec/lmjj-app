@@ -1,0 +1,12 @@
+/* BeltListDashboard */
+.beltlist-flexwrap {
+  display: flex;
+  flex-direction: row;
+}
+
+/* BeltList */
+.beltlist-flex {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+}
