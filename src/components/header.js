@@ -23,7 +23,7 @@ const Header = () => {
                     Login
                 </a>
                 <Menu.Menu position="right">
-                    <Dropdown icon="ellipsis vertical large" className="item">
+                    <Dropdown icon="ellipsis vertical" className="item">
                         <Dropdown.Menu>
                             <Dropdown.Item>Edit Technique</Dropdown.Item>
                             <Dropdown.Item>Admin Console</Dropdown.Item>
