@@ -1,5 +1,5 @@
 /* BeltListDashboard */
-.beltlist-flexwrap {
+.flexwrap {
   display: flex;
   flex-direction: row;
 }

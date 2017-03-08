@@ -9,9 +9,9 @@ class BeltListDashboard extends Component {
 
     render() {
         return(
-            <div className="beltlist-flexwrap">
+            <div className="flexwrap">
                 <BeltList renderBeltList={this.renderBeltList} />
-                TechniqueList
+                <div>TechniqueList</div>
             </div>
         );
     }
