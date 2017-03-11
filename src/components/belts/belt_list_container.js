@@ -1,20 +1,36 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
+import { fetchBelts } from '../../actions/index';
 
 import BeltList from './belt_list';
 
-class BeltListDashboard extends Component {
+class BeltListContainer extends Component {
+    componentWillMount() {
+        this.props.fetchBelts();
+    }
+
     renderBeltList() {
-        return "BeltList";
+        return "Beltlist data loaded";
     }
 
     render() {
+        const {belts} = this.props;
+        console.log(belts);
+
         return(
             <div className="flexwrap">
-                <BeltList renderBeltList={this.renderBeltList} />
+                {(belts) ? <BeltList renderBeltList={this.renderBeltList} /> : ''}
                 <div>TechniqueList</div>
             </div>
         );
     }
 }
 
-export default BeltListDashboard;
+const mapStateToProps = state => {
+  return { 
+    belts: state.belts,
+  };
+};
+
+export default connect(mapStateToProps, { fetchBelts })(BeltListContainer);
