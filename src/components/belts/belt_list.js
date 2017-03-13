@@ -1,9 +1,9 @@
 import React from 'react';
 
-const BeltList = ({renderBeltList}) => {
+const BeltList = ({renderBeltList, belts}) => {
     return (
         <div className="beltlist-flex">
-            {renderBeltList()}
+            {renderBeltList(belts)}
         </div>
     );
 }
