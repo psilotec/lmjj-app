@@ -14,7 +14,7 @@ class BeltListContainer extends Component {
     renderBeltList(belts) {
         return belts.map(belt => {
             return (
-                <div className="item" key={belt.beltId}>
+                <div className="item" key={belt.beltId} onClick={() => selectBelt(belt.beltName)}>
                     <Button color={belt.beltDisplay} key={belt.beltId}>
                         {belt.beltName}
                     </Button>
