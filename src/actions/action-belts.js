@@ -14,6 +14,11 @@ const fetchBelts = () => {
     };
 };
 
+const selectBelt = (belt) => {
+    console.log(`${belt} selected`);
+}
+
 export {
     fetchBelts,
+    selectBelt
 };

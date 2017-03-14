@@ -1,5 +1,6 @@
-import { fetchBelts } from './action-belts';
+import { fetchBelts, selectBelt } from './action-belts';
 
 export {
     fetchBelts,
+    selectBelt
 };

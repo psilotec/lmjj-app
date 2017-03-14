@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Button } from 'semantic-ui-react';
-import { fetchBelts } from '../../actions/index';
+import { fetchBelts, selectBelt } from '../../actions/index';
+import { bindActionCreators } from 'redux';
 
 import BeltList from './belt_list';
 
@@ -14,7 +15,7 @@ class BeltListContainer extends Component {
         return belts.map(belt => {
             return (
                 <div className="item" key={belt.beltId}>
-                    <Button color={belt.beltDisplay} key={belt.beltId} >
+                    <Button color={belt.beltDisplay} key={belt.beltId}>
                         {belt.beltName}
                     </Button>
                 </div>
@@ -24,7 +25,6 @@ class BeltListContainer extends Component {
 
     render() {
         const {belts} = this.props;
-        console.log(belts);
 
         return(
             <div className="flexwrap">
@@ -36,9 +36,16 @@ class BeltListContainer extends Component {
 }
 
 const mapStateToProps = state => {
-  return { 
-    belts: state.belts,
-  };
+    return { 
+        belts: state.belts,
+    };
 };
 
-export default connect(mapStateToProps, { fetchBelts })(BeltListContainer);
+function mapDispatchToProps(dispatch) {
+    return bindActionCreators({ 
+        fetchBelts: fetchBelts,
+        selectBelt: selectBelt, 
+    }, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(BeltListContainer);
