@@ -15,12 +15,11 @@ const fetchBelts = () => {
 };
 
 const selectBelt = (belt) => {
-    // selectBelt is an ActionCreator that returns an action 
     return {
-        type: BELT_SELECTED,
-        payload: belt,
+            type: BELT_SELECTED,
+            payload: belt,
     };
-};
+}
 
 export {
     fetchBelts,

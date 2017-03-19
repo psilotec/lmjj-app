@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Button } from 'semantic-ui-react';
 import { fetchBelts, selectBelt } from '../../actions/index';
-import { bindActionCreators } from 'redux';
 
 import BeltList from './belt_list';
 
@@ -11,41 +9,24 @@ class BeltListContainer extends Component {
         this.props.fetchBelts();
     }
 
-    renderBeltList(belts) {
-        return belts.map(belt => {
-            return (
-                <div className="item" key={belt.beltId} onClick={() => selectBelt(belt.beltId)}>
-                    <Button color={belt.beltDisplay} key={belt.beltId}>
-                        {belt.beltName}
-                    </Button>
-                </div>
-            )
-        })
-    }
-
     render() {
-        const {belts} = this.props;
+        const { belts, selectBelt } = this.props;
 
-        return(
+        return (
             <div className="flexwrap">
-                {(belts) ? <BeltList renderBeltList={this.renderBeltList} belts={belts} /> : ''}
+                {(belts) ? <BeltList belts={belts} selectBelt={selectBelt} /> : ''}
                 <div>TechniqueList</div>
+                <div>{(this.props.selectedBelt) ? this.props.selectedBelt : "nothing"}</div>
             </div>
         );
     }
 }
 
 const mapStateToProps = state => {
-    return { 
+    return {
         belts: state.belts,
+        selectedBelt: state.selectedBelt,
     };
 };
 
-function mapDispatchToProps(dispatch) {
-    return bindActionCreators({ 
-        fetchBelts: fetchBelts,
-        selectBelt: selectBelt, 
-    }, dispatch);
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(BeltListContainer);
+export default connect(mapStateToProps, { fetchBelts, selectBelt })(BeltListContainer);

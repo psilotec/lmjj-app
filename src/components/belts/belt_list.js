@@ -1,9 +1,18 @@
 import React from 'react';
+import { Button } from 'semantic-ui-react';
 
-const BeltList = ({renderBeltList, belts}) => {
+const BeltList = ({ belts, selectBelt }) => {
     return (
         <div className="beltlist-flex">
-            {renderBeltList(belts)}
+            {belts.map(belt => {
+                return (
+                    <div className="item" key={belt.beltId} onClick={() => selectBelt(belt.beltId)}>
+                        <Button color={belt.beltDisplay} key={belt.beltId}>
+                            {belt.beltName}
+                        </Button>
+                    </div>
+                )
+            })}
         </div>
     );
 }
@@ -11,4 +20,4 @@ const BeltList = ({renderBeltList, belts}) => {
 export default BeltList;
 
 //PropTypes
-//belts, onBeltClick, renderBeltList
+//belts, onBeltClick, renderBeltList, selectBelt
