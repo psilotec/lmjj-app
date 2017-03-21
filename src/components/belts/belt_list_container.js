@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-
-import { fetchBelts } from '../../actions/index';
+import { fetchBelts, selectBelt } from '../../actions/index';
 
 import BeltList from './belt_list';
 
@@ -10,27 +9,24 @@ class BeltListContainer extends Component {
         this.props.fetchBelts();
     }
 
-    renderBeltList() {
-        return "Beltlist data loaded";
-    }
-
     render() {
-        const {belts} = this.props;
-        console.log(belts);
+        const { belts, selectBelt } = this.props;
 
-        return(
+        return (
             <div className="flexwrap">
-                {(belts) ? <BeltList renderBeltList={this.renderBeltList} /> : ''}
+                {(belts) ? <BeltList belts={belts} selectBelt={selectBelt} /> : ''}
                 <div>TechniqueList</div>
+                <div>{(this.props.selectedBelt) ? this.props.selectedBelt : "nothing"}</div>
             </div>
         );
     }
 }
 
 const mapStateToProps = state => {
-  return { 
-    belts: state.belts,
-  };
+    return {
+        belts: state.belts,
+        selectedBelt: state.selectedBelt,
+    };
 };
 
-export default connect(mapStateToProps, { fetchBelts })(BeltListContainer);
+export default connect(mapStateToProps, { fetchBelts, selectBelt })(BeltListContainer);

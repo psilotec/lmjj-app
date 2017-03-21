@@ -1,4 +1,4 @@
-import { FETCH_BELTS } from './types';
+import { FETCH_BELTS, BELT_SELECTED } from './types';
 import database from '../startup/database';
 
 const Belts = database.ref().child('belts');
@@ -14,6 +14,14 @@ const fetchBelts = () => {
     };
 };
 
+const selectBelt = (belt) => {
+    return {
+            type: BELT_SELECTED,
+            payload: belt,
+    };
+}
+
 export {
     fetchBelts,
+    selectBelt,
 };
