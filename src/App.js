@@ -4,7 +4,7 @@ import './styles/App.css';
 
 import Header from './components/header';
 import Welcome from './components/welcome';
-import BeltListDashboard from './components/belts/belt_list_container';
+import BeltListContainer from './components/belts/belt_list_container';
 import Technique from './components/techniques/technique';
 import NoMatch from './no_match';
 
@@ -14,7 +14,7 @@ export default () =>
       <Header />
       <Switch>
         <Route exact={true} path="/" component={Welcome} />
-        <Route path="/beltlist" component={BeltListDashboard} />
+        <Route path="/beltlist" component={BeltListContainer} />
         <Route path="/technique/:techId" component={Technique} />
         <Route component={NoMatch} />
       </Switch>
