@@ -1,11 +1,15 @@
+// Component to render filetered list of techniques. Filters techniques from 
+// the store against the selectedBelt prop from BeltList and maps the matches
 import React from 'react';
 import { Button } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 
-const TechniqueList = ({ techniques, selectedTechnique }) => {
+const TechniqueList = ({ techniques, selectedBelt }) => {
     return (
         <div className="techniquelist-flex">
-            {techniques.map(technique => {
+            {techniques.filter(function(obj) {
+                return obj.techBelt === selectedBelt;
+            }).map(technique => {
                 return (
                     <div className="item" key={technique.techId}>
                         <Link to={`/technique/${technique.techId}`}>   
@@ -23,4 +27,4 @@ const TechniqueList = ({ techniques, selectedTechnique }) => {
 export default TechniqueList;
 
 //PropTypes
-//techniques, selectedTechnique
+//techniques, selectedBelt
