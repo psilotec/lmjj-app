@@ -17,7 +17,7 @@ class BeltListContainer extends Component {
         return (
             <div className="flexwrap">
                 {(belts) ? <BeltList belts={belts} selectBelt={selectBelt} /> : ''}
-                <div>{(selectedBelt) ? <TechniqueList techniques={techniques} selectTechnique={""} /> : ''}</div>
+                <div>{(selectedBelt) ? <TechniqueList techniques={techniques} selectedBelt={selectedBelt} /> : ''}</div>
             </div>
         );
     }

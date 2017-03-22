@@ -1,8 +1,11 @@
 import React from 'react';
 
-const Technique = () => {
+const Technique = ({ match }) => {
     return(
-        <div>Technique</div>
+        <div>
+            Technique
+            <p>{match.params.techId}</p>
+        </div>
     );
 }
 
