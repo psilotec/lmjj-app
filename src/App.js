@@ -1,5 +1,5 @@
 import React from 'react';
-import {BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import {BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 import './styles/App.css';
 
 import Header from './components/header';
@@ -15,6 +15,7 @@ export default () =>
       <Switch>
         <Route exact={true} path="/" component={Welcome} />
         <Route path="/beltlist" component={BeltListContainer} />
+          <Redirect from="/technique/beltlist" to="/beltlist" />
         <Route path="/technique/:techId" component={Technique} />
         <Route component={NoMatch} />
       </Switch>
