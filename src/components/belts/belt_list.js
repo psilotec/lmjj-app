@@ -6,7 +6,7 @@ const BeltList = ({ belts, selectBelt }) => {
         <div className="beltlist-flex">
             {belts.map(belt => {
                 return (
-                    <div className="item" key={belt.beltId} onClick={() => selectBelt(belt.beltId)}>
+                    <div className="item" key={belt.beltId} onClick={() => selectBelt(belt.beltColor)}>
                         <Button color={belt.beltDisplay} key={belt.beltId}>
                             {belt.beltName}
                         </Button>
