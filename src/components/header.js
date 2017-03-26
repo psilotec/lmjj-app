@@ -10,13 +10,13 @@ const Header = () => {
                 <Link to="/" className="item">
                     JJ Guide
                 </Link>
-                <Link to="beltlist" className="item">
+                <Link to="/beltlist" className="item">
                     Belt List
                 </Link>
-                <Link to="seminars" className="item">
+                <Link to="/seminars" className="item">
                     Seminars
                 </Link>
-                <Link to="planner" className="item">
+                <Link to="/planner" className="item">
                     Lesson Planner
                 </Link>
                 <a className="item">
