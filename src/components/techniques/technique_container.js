@@ -12,13 +12,22 @@ class TechniqueContainer extends Component {
         }
     }
 
+    validateTechId (match) {
+        if(match.params.techId > 0 && match.params.techId < this.props.techniques.length) {
+            return true;
+        }
+    }
+
     render() {
         const { match, techniques } = this.props;
-        console.log(techniques);
 
         return (
             <div>
                 {match.params.techId}
+
+                {(this.validateTechId(match)) 
+                ? "Show technique component" 
+                : "Show spinner: please ensure you have selected an existing technique"}
             </div>
         );
     }
