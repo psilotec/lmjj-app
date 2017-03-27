@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchTechniques } from '../../actions/index';
 
+import Technique from './technique';
 
 class TechniqueContainer extends Component {
     componentWillMount() {
@@ -23,10 +24,8 @@ class TechniqueContainer extends Component {
 
         return (
             <div>
-                {match.params.techId}
-
                 {(this.validateTechId(match)) 
-                ? "Show technique component" 
+                ? <Technique techId={match.params.techId} techniques={techniques} /> 
                 : "Show spinner: please ensure you have selected an existing technique"}
             </div>
         );
