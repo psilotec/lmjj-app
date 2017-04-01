@@ -1,11 +1,11 @@
 import React from 'react';
 
-const Technique = ({ techId, techniques }) => {
-    console.log(techniques);
+const Technique = ({ selectedTechnique }) => {
+    console.log(selectedTechnique);
     return (
         <div>
-            Technique Component
-            <p>TechId: {techId}</p>
+            <h2>{selectedTechnique.techName}</h2>
+            <p>TechId: {selectedTechnique.techId}</p>
         </div>
     );
 };
