@@ -7,7 +7,11 @@ import TechniqueList from '../techniques/technique_list';
 
 class BeltListContainer extends Component {
     componentWillMount() {
-        this.props.fetchBelts();
+        if(this.props.belts.length === 0) {
+            this.props.fetchBelts();
+        }
+
+        // Refetch techniques every time BeltListContainer is loaded to maintain updated techniques
         this.props.fetchTechniques();
     }
 

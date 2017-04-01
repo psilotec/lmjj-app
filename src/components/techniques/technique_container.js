@@ -6,11 +6,16 @@ import Technique from './technique';
 
 class TechniqueContainer extends Component {
     componentWillMount() {
-        this.props.fetchTechniques()
-        .then((response)=>{
-            return this.props.getSelectedTechniqueData(this.props.match.params.techId, this.props.techniques);
-        })
-        .catch(error => console.error(error));
+        // Fetch techniques if this component didn't already have them becase user accessed component directly via url
+        if(this.props.techniques.length === 0) {
+            this.props.fetchTechniques()
+            .then((response)=>{
+                return this.props.getSelectedTechniqueData(this.props.match.params.techId, this.props.techniques);
+            })
+            .catch(error => console.error(error));
+        } else {
+            this.props.getSelectedTechniqueData(this.props.match.params.techId, this.props.techniques);
+        }
     }
 
     validateTechId (match) {

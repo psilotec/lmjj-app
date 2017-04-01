@@ -22,8 +22,6 @@ const getSelectedTechniqueData = (techId, techniques) => {
         const selectedTechnique = techniques.filter((tech) => {
                 return tech.techId === techId;
         })[0];
-
-        console.log(selectedTechnique)
         dispatch({
             type: GET_SELECTED_TECHNIQUE_DATA,
             payload: selectedTechnique,

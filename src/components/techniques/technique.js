@@ -1,7 +1,6 @@
 import React from 'react';
 
 const Technique = ({ selectedTechnique }) => {
-    console.log(selectedTechnique);
     return (
         <div>
             <h2>{selectedTechnique.techName}</h2>
