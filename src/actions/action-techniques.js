@@ -5,10 +5,13 @@ const Techniques = database.ref().child('techniques');
 
 const fetchTechniques = () => {
     return dispatch => {
-        Techniques.on('value', snapshot => {
-            dispatch({
-                type: FETCH_TECHNIQUES,
-                payload: snapshot.val(),
+        return new Promise((resolve, reject) => {
+            Techniques.on('value', snapshot => {
+                dispatch({
+                    type: FETCH_TECHNIQUES,
+                    payload: snapshot.val(),
+                })
+                resolve(true);
             })
         })
     };

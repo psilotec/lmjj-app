@@ -6,36 +6,11 @@ import Technique from './technique';
 
 class TechniqueContainer extends Component {
     componentWillMount() {
-        // Fetch techniques so they will be available if this component 
-        // is navigated to directly via url instead of from BeltList
-        console.log('undefined?', this.props.techniques);
-        if(this.props.techniques.length === 0) {
-            this.props.fetchTechniques()
-            .then((data) => {
-                this.getCurrentTechnique();
-            });
-            //.then this.getCurrentTechnique(); ?????
-        }else
-            this.getCurrentTechnique();
-    }
-
-    /*
-
-    fetchAllTechniques() {
-        return new Promise((resolve, reject) => {
-            
-            resolve(this.props.fetchTechniques()))
-           // .catch(error => console.error(error))
-        }).then(() => getCurrentTechnique() )
-
-      //  return promise;
-    }
-    */
-
-    getCurrentTechnique() {
-        // Fire off action to get currently selected technique
-        console.log(this.props.match.params.techId, this.props.techniques);
-        this.props.getSelectedTechniqueData(this.props.match.params.techId, this.props.techniques);
+        this.props.fetchTechniques()
+        .then((response)=>{
+            return this.props.getSelectedTechniqueData(this.props.match.params.techId, this.props.techniques);
+        })
+        .catch(error => console.error(error));
     }
 
     validateTechId (match) {
