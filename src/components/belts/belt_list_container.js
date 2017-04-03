@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchBelts, selectBelt, fetchTechniques } from '../../actions/index';
+import { Icon, Loader } from 'semantic-ui-react';
 
 import BeltList from './belt_list';
 import TechniqueList from '../techniques/technique_list';
@@ -20,8 +21,14 @@ class BeltListContainer extends Component {
 
         return (
             <div className="flexwrap">
-                {(belts) ? <BeltList belts={belts} selectBelt={selectBelt} /> : ''}
-                <div>{(selectedBelt) ? <TechniqueList techniques={techniques} selectedBelt={selectedBelt} /> : ''}</div>
+                {(belts) 
+                ? <BeltList belts={belts} selectBelt={selectBelt} /> 
+                : <Loader active inline='centered' />}
+                <div>
+                    {(selectedBelt) 
+                    ? <TechniqueList techniques={techniques} selectedBelt={selectedBelt} /> 
+                    : ''}
+                </div>
             </div>
         );
     }
