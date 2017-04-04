@@ -1,24 +1,33 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchTechniques, getSelectedTechniqueData } from '../../actions/index';
+import { fetchTechniques, getSelectedTechniqueData, directionalNavigate } from '../../actions/index';
+import { Loader, Icon } from 'semantic-ui-react';
 
 import Technique from './technique';
 
 class TechniqueContainer extends Component {
     componentWillMount() {
+        const { techniques, fetchTechniques, getSelectedTechniqueData, match } = this.props;
+
         // Fetch techniques if this component didn't already have them becase user accessed component directly via url
-        if(this.props.techniques.length === 0) {
-            this.props.fetchTechniques()
+        if(techniques.length === 0) {
+            fetchTechniques()
             .then((response)=>{
-                return this.props.getSelectedTechniqueData(this.props.match.params.techId, this.props.techniques);
+                return getSelectedTechniqueData(match.params.techId, this.props.techniques);
             })
             .catch(error => console.error(error));
         } else {
-            this.props.getSelectedTechniqueData(this.props.match.params.techId, this.props.techniques);
+            getSelectedTechniqueData(match.params.techId, techniques);
         }
     }
 
-    validateTechId (match) {
+    handleNavigationClick(direction) {
+        const { directionalNavigate, selectedTechnique, techniques } = this.props;
+
+        return directionalNavigate(selectedTechnique.techId, techniques, direction);
+    }
+
+    validateTechId(match) {
         if(match.params.techId >= 0 && match.params.techId <= this.props.techniques.length) {
             return true;
         }
@@ -30,8 +39,12 @@ class TechniqueContainer extends Component {
         return (
             <div>
                 {(this.validateTechId(match) && selectedTechnique) 
-                ? <Technique selectedTechnique={selectedTechnique} /> 
-                : "Spinner"}
+                ? <div>
+                    <Icon link name='chevron left' size='big' onClick={this.handleNavigationClick.bind(this, "previous")}/> 
+                    <Technique selectedTechnique={selectedTechnique} handleNavigationClick={this.handleNavigationClick} />
+                    <Icon link name='chevron right' size='big' onClick={this.handleNavigationClick.bind(this, "next")}/> 
+                  </div>
+                : <Loader active inline='centered' />}
             </div>
         );
     }
@@ -44,4 +57,4 @@ const mapStateToProps = state => {
     };
 };
 
-export default connect(mapStateToProps, { fetchTechniques, getSelectedTechniqueData })(TechniqueContainer);
+export default connect(mapStateToProps, { fetchTechniques, getSelectedTechniqueData, directionalNavigate })(TechniqueContainer);

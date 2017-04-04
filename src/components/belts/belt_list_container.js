@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchBelts, selectBelt, fetchTechniques } from '../../actions/index';
-import { Icon, Loader } from 'semantic-ui-react';
+import { Loader } from 'semantic-ui-react';
 
 import BeltList from './belt_list';
 import TechniqueList from '../techniques/technique_list';
