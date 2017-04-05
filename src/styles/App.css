@@ -18,3 +18,24 @@
 .ui.grey.button:hover {
   background-color: #cacbcd;
 }
+
+/* TechniqueContainer */
+.techniquecontainer-flex {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  height: 93vh;
+  width: 100vw;
+}
+
+/* Technique */
+.technique-flex {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.directionalnav-flex {
+  align-self: flex-end;
+}

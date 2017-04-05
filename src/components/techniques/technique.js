@@ -1,10 +1,12 @@
 import React from 'react';
+import TechniqueCard from './technique_card';
 
 const Technique = ({ selectedTechnique }) => {
     return (
-        <div>
-            <h2>{selectedTechnique.techName}</h2>
-            <p>TechId: {selectedTechnique.techId}</p>
+        <div className="technique-flex">
+            Pressure points
+            <TechniqueCard selectedTechnique={selectedTechnique} />
+            Advanced tips
         </div>
     );
 };
