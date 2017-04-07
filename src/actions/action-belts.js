@@ -19,7 +19,7 @@ const selectBelt = (belt) => {
             type: BELT_SELECTED,
             payload: belt,
     };
-}
+};
 
 export {
     fetchBelts,
