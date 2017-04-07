@@ -6,7 +6,7 @@ import { Menu, Dropdown, Icon } from 'semantic-ui-react';
 const Header = () => {
     return(
         <div>
-            <Menu size='large' pointing secondary>
+            <Menu size='huge' pointing secondary>
                 <Link to="/" className="item">
                     JJ Guide
                 </Link>
