@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Image, Container, Divider } from 'semantic-ui-react'
+import { Card, Image, Container, Divider, Header } from 'semantic-ui-react'
 
 const TechniqueCard = ({ selectedTechnique }) => {
     const src = 'https://s3.amazonaws.com/miscbucket444/lmjjshot.png';
@@ -7,7 +7,7 @@ const TechniqueCard = ({ selectedTechnique }) => {
         <Container>
             <Card fluid centered color={selectedTechnique.techDisplayColor}>
                 <Card.Content>
-                    <Card.Header>{selectedTechnique.techName}</Card.Header>
+                    <Header size='medium'>{selectedTechnique.techName}</Header>
                 </Card.Content>
                 <Divider />
                 <Image src={src} centered />
