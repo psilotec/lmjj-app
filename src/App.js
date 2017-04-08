@@ -7,9 +7,8 @@ import Welcome from './components/welcome';
 import BeltListContainer from './components/belts/belt_list_container';
 import TechniqueContainer from './components/techniques/technique_container';
 import NoMatch from './no_match';
-       //   <Redirect from="/technique/beltlist" to="/beltlist" />
 
-export default () =>
+export default () => 
   <Router>
     <div>
       <Header />

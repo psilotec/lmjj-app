@@ -13,7 +13,7 @@ const TechniqueList = ({ techniques, selectedBelt }) => {
                 return (
                     <div className="item" key={technique.techId}>
                         <Link to={`/technique/${technique.techId}`}>   
-                            <Button key={technique.techId}>
+                            <Button className='list-button' key={technique.techId}>
                                 {technique.techName}
                             </Button>
                         </Link>
