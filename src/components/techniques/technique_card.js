@@ -8,7 +8,7 @@ const TechniqueCard = ({ selectedTechnique }) => {
             <Grid.Row centered columns={1}>
                 <Grid.Column>
                     <Card className='techniquecard' centered color={selectedTechnique.techDisplayColor}>
-                        <Card.Content>
+                        <Card.Content className="technique-header">
                             <Header size='medium'>{selectedTechnique.techName}</Header>
                         </Card.Content>
                         <Card.Content>

@@ -1,3 +1,8 @@
+/* Header */
+.header-nav {
+  background-color: #f9f9f9;
+}
+
 /* BeltListDashboard */
 .flexwrap {
   display: flex;
@@ -34,6 +39,7 @@
   align-self: flex-end;
 }
 
+/* TechniqueCard */
 .technique-image {
   max-height: 30vh;
   max-width: 60vw;
@@ -41,4 +47,8 @@
 
 .techniquecard {
   min-width: 65vw;
+}
+
+.ui.card>.content.technique-header {
+  background-color: #f9f9f9;
 }
