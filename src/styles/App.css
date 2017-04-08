@@ -25,17 +25,20 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  height: 93vh;
+  height: 85vh;
   width: 100vw;
 }
 
 /* Technique */
-.technique-flex {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
-
 .directionalnav-flex {
   align-self: flex-end;
+}
+
+.technique-image {
+  max-height: 30vh;
+  max-width: 60vw;
+}
+
+.techniquecard {
+  min-width: 65vw;
 }

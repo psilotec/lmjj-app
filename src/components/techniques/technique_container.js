@@ -40,9 +40,9 @@ class TechniqueContainer extends Component {
             <div>
                 {(this.validateTechId(match) && selectedTechnique) 
                 ? <div className="techniquecontainer-flex">
-                    <Icon className="directionalnav-flex" link name='chevron left' size='big' onClick={this.handleNavigationClick.bind(this, "previous")}/> 
+                    <Icon className="directionalnav-flex" link name='chevron left' size='huge' onClick={this.handleNavigationClick.bind(this, "previous")}/> 
                     <Technique selectedTechnique={selectedTechnique} handleNavigationClick={this.handleNavigationClick} />
-                    <Icon className="directionalnav-flex" link name='chevron right' size='big' onClick={this.handleNavigationClick.bind(this, "next")}/> 
+                    <Icon className="directionalnav-flex" link name='chevron right' size='huge' onClick={this.handleNavigationClick.bind(this, "next")}/> 
                   </div>
                 : <Loader active inline='centered' />}
             </div>
