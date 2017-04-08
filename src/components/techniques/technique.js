@@ -1,12 +1,10 @@
 import React from 'react';
+import TechniqueCard from './technique_card';
 
-const Technique = ({ match }) => {
-    return(
-        <div>
-            Technique
-            <p>{match.params.techId}</p>
-        </div>
+const Technique = ({ selectedTechnique }) => {
+    return (
+        <TechniqueCard selectedTechnique={selectedTechnique} />
     );
-}
+};
 
 export default Technique;
