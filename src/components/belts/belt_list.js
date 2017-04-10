@@ -7,7 +7,7 @@ const BeltList = ({ belts, selectBelt }) => {
             {belts.map(belt => {
                 return (
                     <div className="item" key={belt.beltId} onClick={() => selectBelt(belt.beltColor)}>
-                        <Button color={belt.beltDisplay} key={belt.beltId}>
+                        <Button color={belt.beltDisplay} key={belt.beltId} className='list-button'>
                             {belt.beltName}
                         </Button>
                     </div>

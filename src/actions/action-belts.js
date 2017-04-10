@@ -16,10 +16,10 @@ const fetchBelts = () => {
 
 const selectBelt = (belt) => {
     return {
-            type: BELT_SELECTED,
-            payload: belt,
+        type: BELT_SELECTED,
+        payload: belt,
     };
-}
+};
 
 export {
     fetchBelts,

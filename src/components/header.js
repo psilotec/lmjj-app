@@ -1,12 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import { Menu, Dropdown } from 'semantic-ui-react';
+import { Menu, Dropdown, Icon } from 'semantic-ui-react';
 
 const Header = () => {
     return(
-        <div>
-            <Menu pointing secondary>
+        <div className="header-nav">
+            <Menu size='huge' pointing secondary fluid>
                 <Link to="/" className="item">
                     JJ Guide
                 </Link>
@@ -25,8 +25,14 @@ const Header = () => {
                 <Menu.Menu position="right">
                     <Dropdown icon="ellipsis vertical" className="item">
                         <Dropdown.Menu>
-                            <Dropdown.Item>Edit Technique</Dropdown.Item>
-                            <Dropdown.Item>Admin Console</Dropdown.Item>
+                            <Dropdown.Item>
+                                <Icon name='edit' />
+                                Edit Technique
+                            </Dropdown.Item>
+                            <Dropdown.Item>    
+                                <Icon name='settings' />
+                                Admin Console
+                            </Dropdown.Item>
                         </Dropdown.Menu>
                     </Dropdown>
                 </Menu.Menu>
