@@ -12,7 +12,7 @@ class TechniqueContainer extends Component {
         // Fetch techniques if this component didn't already have them becase user accessed component directly via url
         if(techniques.length === 0) {
             fetchTechniques()
-            .then((response)=>{
+            .then((response)=> {
                 return getSelectedTechniqueData(match.params.techId, this.props.techniques);
             })
             .catch(error => console.error(error));
