@@ -2,7 +2,7 @@ import React from 'react';
 import {BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './styles/App.css';
 
-import Header from './components/header';
+import { Header } from './components/header';
 import Welcome from './components/welcome';
 import BeltListContainer from './components/belts/belt_list_container';
 import TechniqueContainer from './components/techniques/technique_container';
