@@ -2,6 +2,11 @@ import React, { Component } from 'react';
 import { Button, Header, Icon, Image, Modal } from 'semantic-ui-react';
 
 export class EditTechniqueModal extends Component {
+    constructor(props) {
+        super(props);
+
+    }
+
     render() {
         return (    
             <Modal trigger={<div><Icon name='edit'/>Edit Technique</div>}>

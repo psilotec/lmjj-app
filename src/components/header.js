@@ -1,10 +1,17 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import createBrowserHistory from 'history/createBrowserHistory';
 
 import { Menu, Dropdown, Icon } from 'semantic-ui-react';
 import { EditTechniqueModal } from'../components/techniques/edit_technique_modal';
 
 export class Header extends Component {
+    showEditTechniqueButton() {
+        if(createBrowserHistory().location.pathname.includes("technique")) {
+            return true;
+        }
+    }
+
     render() {
         return(
             <div className="header-nav">
@@ -27,9 +34,12 @@ export class Header extends Component {
                     <Menu.Menu position="right">
                         <Dropdown icon="ellipsis vertical" className="item">
                             <Dropdown.Menu>
-                                <Dropdown.Item>
-                                    <EditTechniqueModal />
-                                </Dropdown.Item>
+                                { (this.showEditTechniqueButton()) ?
+                                    <Dropdown.Item>
+                                        <EditTechniqueModal />
+                                    </Dropdown.Item>
+                                    : '' 
+                                }                             
                                 <Dropdown.Item>    
                                     <Icon name='settings' />
                                     Admin Console
