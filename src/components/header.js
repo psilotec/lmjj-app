@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import createBrowserHistory from 'history/createBrowserHistory';
 
 import { Menu, Dropdown, Icon } from 'semantic-ui-react';
-import { EditTechniqueModal } from'../components/techniques/edit_technique_modal';
+import EditTechniqueModal from'../components/techniques/edit_technique_modal';
 
 export class Header extends Component {
     showEditTechniqueButton() {

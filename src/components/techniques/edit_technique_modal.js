@@ -1,13 +1,10 @@
 import React, { Component } from 'react';
-import { Button, Header, Icon, Image, Modal } from 'semantic-ui-react';
+import { connect } from 'react-redux';
+import { Button, Header, Icon, Image, Modal, Form, Input } from 'semantic-ui-react';
 
-export class EditTechniqueModal extends Component {
-    constructor(props) {
-        super(props);
-
-    }
-
+class EditTechniqueModal extends Component {
     render() {
+        console.log(this.props.selectedTechnique);
         return (    
             <Modal trigger={<div><Icon name='edit'/>Edit Technique</div>}>
             <Modal.Header>Profile Picture</Modal.Header>
@@ -15,9 +12,17 @@ export class EditTechniqueModal extends Component {
             <Image wrapped size='medium' src='/assets/images/wireframe/image.png' />
             <Modal.Description>
                 <Header>Modal Header</Header>
-                <p>This is an example of expanded content that will cause the modal's dimmer to scroll</p>
-                <Image src='/assets/images/wireframe/paragraph.png' />
-                <Image src='/assets/images/wireframe/paragraph.png' />
+                <Form>
+                    <Form.Field>
+                    <label>Technique Name:</label>
+                    <Input placeholder={this.props.selectedTechnique} />
+                    </Form.Field>
+                    <Form.Field>
+                    <label>Technique Description:</label>
+                    <Input placeholder='Last Name' />
+                    </Form.Field>
+                    <Button type='submit'>Submit</Button>
+                </Form>            
             </Modal.Description>
             </Modal.Content>
             <Modal.Actions>
@@ -29,3 +34,11 @@ export class EditTechniqueModal extends Component {
         );
     }
 }
+
+const mapStateToProps = state => {
+    return {
+        selectedTechnique: state.selectedTechnique,
+    };
+};
+
+export default connect(mapStateToProps)(EditTechniqueModal);
