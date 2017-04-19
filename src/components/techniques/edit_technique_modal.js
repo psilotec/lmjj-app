@@ -6,7 +6,7 @@ class EditTechniqueModal extends Component {
     render() {
         console.log(this.props.selectedTechnique);
         return (    
-            <Modal trigger={<div><Icon name='edit'/>Edit Technique</div>}>
+            <Modal trigger={<div>Edit</div>}>
             <Modal.Header>Profile Picture</Modal.Header>
             <Modal.Content image>
             <Image wrapped size='medium' src='/assets/images/wireframe/image.png' />
