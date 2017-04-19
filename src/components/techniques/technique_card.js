@@ -11,10 +11,11 @@ const TechniqueCard = ({ selectedTechnique }) => {
                 <Grid.Column>
                     <Card className='techniquecard' centered color={selectedTechnique.techDisplayColor}>
                         <Card.Content className='technique-header'>
-                            <Header size='medium'>{selectedTechnique.techName}
-                                <Label attached='top right'><EditTechniqueModal /></Label>
-                            </Header>
+                            <Header size='medium'>{selectedTechnique.techName}</Header>
                         </Card.Content>
+                        <Label attached='top right'>
+                            <EditTechniqueModal />
+                        </Label>
                         <Card.Content>
                             <Image className='technique-image' src={src} centered />
                         </Card.Content>
