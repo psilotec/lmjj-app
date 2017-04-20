@@ -1,44 +1,76 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { Button, Header, Icon, Image, Modal, Form, Input } from 'semantic-ui-react';
+import { Button, Image, Modal, Form, Input } from 'semantic-ui-react';
 
 class EditTechniqueModal extends Component {
+    constructor(props) {
+        super(props);
+
+        // State to keep track of user input before submit
+        this.state = {
+            nameChanges: '',
+            imageUrlChanges: '',
+            descriptionChanges: '',
+        };
+    }
+
+    componentWillMount() {
+        this.setState({
+            nameChanges: this.props.selectedTechnique.techName,
+            imageUrlChanges: this.props.selectedTechnique.techImgUrl,
+            descriptionChanges: this.props.selectedTechnique.techDesc,
+        });
+    }
+
+    onInputChange = (event, inputId) => {
+        let stateToChange = `${inputId}Changes`;
+        
+        // Store input value in this.state
+        this.setState({
+            [stateToChange]: event.target.value
+        });
+    }
+
     render() {
-        console.log(this.props.selectedTechnique);
+        const selectedTechnique = this.props.selectedTechnique;
         return (    
             <Modal trigger={<div>Edit</div>}>
-            <Modal.Header>Profile Picture</Modal.Header>
-            <Modal.Content image>
-            <Image wrapped size='medium' src='/assets/images/wireframe/image.png' />
-            <Modal.Description>
-                <Header>Modal Header</Header>
-                <Form>
-                    <Form.Field>
-                    <label>Technique Name:</label>
-                    <Input placeholder={this.props.selectedTechnique} />
-                    </Form.Field>
-                    <Form.Field>
-                    <label>Technique Description:</label>
-                    <Input placeholder='Last Name' />
-                    </Form.Field>
-                    <Button type='submit'>Submit</Button>
-                </Form>            
-            </Modal.Description>
-            </Modal.Content>
-            <Modal.Actions>
-            <Button primary>
-                Proceed <Icon name='right chevron' />
-            </Button>
-            </Modal.Actions>
-        </Modal>
+                <Modal.Header>Edit Technique #{selectedTechnique.techId}</Modal.Header>
+                <Modal.Content image>
+                    <Modal.Description>
+                        <Form>
+                            <Form.Field>
+                                <label>Technique Name:</label>
+                                <Input 
+                                    defaultValue={this.state.nameChanges}
+                                    onChange={(event) => this.onInputChange(event, "name")} />
+                            </Form.Field>
+                            <Form.Field>
+                                <label>Image URL:</label>
+                                <Input 
+                                    defaultValue={this.state.nameChanges}
+                                    onChange={(event) => this.onInputChange(event, "imageUrl")} />                                
+                            </Form.Field>
+                            <Form.Field>
+                                <label>Technique Description:</label>
+                                <Input 
+                                    defaultValue={selectedTechnique.techDesc}
+                                    onChange={(event) => this.onInputChange(event, "description")} />                                
+                            </Form.Field>
+                        </Form>            
+                    </Modal.Description>
+                <Image wrapped size='small' src='/assets/images/wireframe/image.png' />
+                </Modal.Content>
+                <Modal.Actions>
+                    <Button>
+                        Cancel
+                    </Button>
+                    <Button primary>
+                        Save
+                    </Button>
+                </Modal.Actions>
+            </Modal>
         );
     }
 }
 
-const mapStateToProps = state => {
-    return {
-        selectedTechnique: state.selectedTechnique,
-    };
-};
-
-export default connect(mapStateToProps)(EditTechniqueModal);
+export default EditTechniqueModal;
