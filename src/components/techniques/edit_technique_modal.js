@@ -7,6 +7,7 @@ class EditTechniqueModal extends Component {
 
         // State to keep track of user input before submit
         this.state = {
+            modalOpen: false,
             nameChanges: '',
             imageUrlChanges: '',
             descriptionChanges: '',
@@ -19,6 +20,22 @@ class EditTechniqueModal extends Component {
             imageUrlChanges: this.props.selectedTechnique.techImgUrl,
             descriptionChanges: this.props.selectedTechnique.techDesc,
         });
+    }
+    
+    handleOpen = (event) => this.setState({
+        modalOpen: true,
+    })
+
+    handleClose = (event) => this.setState({
+        modalOpen: false,
+    })
+
+    handleSave = (event) => {
+        // Fire off change data in firebase action
+
+        // Error handling
+        
+        this.handleClose();
     }
 
     onInputChange = (event, inputId) => {
@@ -33,7 +50,11 @@ class EditTechniqueModal extends Component {
     render() {
         const selectedTechnique = this.props.selectedTechnique;
         return (    
-            <Modal trigger={<div>Edit</div>}>
+            <Modal 
+                trigger={<div onClick={this.handleOpen}>Edit</div>}
+                open={this.state.modalOpen}
+                onClose={this.handleClose}
+            >
                 <Modal.Header>Edit Technique #{selectedTechnique.techId}</Modal.Header>
                 <Modal.Content image>
                     <Modal.Description>
@@ -61,10 +82,10 @@ class EditTechniqueModal extends Component {
                 <Image wrapped size='small' src='/assets/images/wireframe/image.png' />
                 </Modal.Content>
                 <Modal.Actions>
-                    <Button>
+                    <Button onClick={this.handleClose}>
                         Cancel
                     </Button>
-                    <Button primary>
+                    <Button onClick={this.handleSave} primary>
                         Save
                     </Button>
                 </Modal.Actions>

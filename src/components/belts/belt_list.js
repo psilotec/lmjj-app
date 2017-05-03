@@ -15,7 +15,7 @@ const BeltList = ({ belts, selectBelt }) => {
             })}
         </div>
     );
-}
+};
 
 export default BeltList;
 
