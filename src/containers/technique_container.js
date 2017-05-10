@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { fetchTechniques, getSelectedTechniqueData, directionalNavigate } from '../actions/index';
+import { fetchTechniques, getSelectedTechniqueData, directionalNavigate, editTechnique } from '../actions/index';
 import Technique from '../components/techniques/technique';
 
 const mapStateToProps = (state, ownProps) => {
@@ -14,6 +14,7 @@ const mapDispatchToProps = {
     fetchTechniques,
     getSelectedTechniqueData,
     directionalNavigate,
+    editTechnique,
 };
 
 const TechniqueContainer = connect(

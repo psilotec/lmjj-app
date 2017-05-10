@@ -1,5 +1,5 @@
 import { fetchBelts, selectBelt } from './action-belts';
-import { fetchTechniques, getSelectedTechniqueData, directionalNavigate } from './action-techniques';
+import { fetchTechniques, getSelectedTechniqueData, directionalNavigate, editTechnique} from './action-techniques';
 
 export {
     fetchBelts,
@@ -7,4 +7,5 @@ export {
     fetchTechniques,
     getSelectedTechniqueData,
     directionalNavigate,
+    editTechnique,
 };

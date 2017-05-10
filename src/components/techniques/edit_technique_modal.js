@@ -18,9 +18,11 @@ class EditTechniqueModal extends Component {
         this.resetFields();
     }
     
-    handleOpen = (event) => this.setState({
-        modalOpen: true,
-    })
+    handleOpen = (event) => {
+        this.setState({
+            modalOpen: true,
+        })
+    }
 
     handleClose = (event) => {
         this.resetFields();
@@ -32,10 +34,13 @@ class EditTechniqueModal extends Component {
 
     handleSave = (event) => {
         // Fire off change data in firebase action
+        this.props.editTechnique(this.props.selectedTechnique.techId, this.state.descriptionChanges)
+        .then(this.handleClose());
 
         // Error handling
+
+        // Refetch data
         
-        this.handleClose();
     }
 
     onInputChange = (event, inputId) => {
@@ -56,7 +61,7 @@ class EditTechniqueModal extends Component {
     }
 
     render() {
-        const selectedTechnique = this.props.selectedTechnique;
+        const { selectedTechnique } = this.props;
         return (    
             <Modal 
                 trigger={<div onClick={this.handleOpen}>Edit</div>}

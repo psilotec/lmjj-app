@@ -59,8 +59,25 @@ const directionalNavigate = (techId, techniques, direction) => {
   }
 };
 
+const editTechnique = (techId, techDesc) => {
+    return dispatch => {
+        return new Promise((resolve, reject) => {
+            Techniques.child(1).update({
+                "techDesc": techDesc
+            }).then(() => resolve());
+        })
+    }
+};
+
 export {
     fetchTechniques,
     getSelectedTechniqueData,
     directionalNavigate,
+    editTechnique,
 };
+
+//   firebase.database().ref('users/' + userId).set({
+//     username: name,
+//     email: email,
+//     profile_picture : imageUrl
+//   });
