@@ -15,20 +15,20 @@ class EditTechniqueModal extends Component {
     }
 
     componentWillMount() {
-        this.setState({
-            nameChanges: this.props.selectedTechnique.techName,
-            imageUrlChanges: this.props.selectedTechnique.techImgUrl,
-            descriptionChanges: this.props.selectedTechnique.techDesc,
-        });
+        this.resetFields();
     }
     
     handleOpen = (event) => this.setState({
         modalOpen: true,
     })
 
-    handleClose = (event) => this.setState({
-        modalOpen: false,
-    })
+    handleClose = (event) => {
+        this.resetFields();
+
+        this.setState({
+            modalOpen: false,
+        })
+    }
 
     handleSave = (event) => {
         // Fire off change data in firebase action
@@ -44,6 +44,14 @@ class EditTechniqueModal extends Component {
         // Store input value in this.state
         this.setState({
             [stateToChange]: event.target.value
+        });
+    }
+
+    resetFields = () => {
+        this.setState({
+            nameChanges: this.props.selectedTechnique.techName,
+            imageUrlChanges: this.props.selectedTechnique.techImgUrl,
+            descriptionChanges: this.props.selectedTechnique.techDesc,
         });
     }
 
