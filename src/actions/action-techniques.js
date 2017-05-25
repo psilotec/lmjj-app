@@ -62,7 +62,7 @@ const directionalNavigate = (techId, techniques, direction) => {
 const editTechnique = (techId, techDesc) => {
     return dispatch => {
         return new Promise((resolve, reject) => {
-            Techniques.child(1).update({
+            Techniques.child(techId).update({
                 "techDesc": techDesc
             }).then(() => resolve());
         })
