@@ -31,13 +31,13 @@ export default class Technique extends Component {
     }
 
     render() {
-        const { match, selectedTechnique, editTechnique } = this.props;
+        const { match, selectedTechnique, editTechnique, techniques } = this.props;
         return (
             <div>
                 {(this.validateTechId(match) && selectedTechnique) 
                 ? <div className="techniquecontainer-flex">
                     <Icon className="directionalnav-flex" link name='chevron left' size='huge' onClick={this.handleNavigationClick.bind(this, "previous")}/> 
-                    <TechniqueCard selectedTechnique={selectedTechnique} editTechnique={editTechnique} />
+                    <TechniqueCard selectedTechnique={selectedTechnique} editTechnique={editTechnique} techniques={techniques} techId={selectedTechnique.techId} />
                     <Icon className="directionalnav-flex" link name='chevron right' size='huge' onClick={this.handleNavigationClick.bind(this, "next")}/> 
                   </div>
                 : <Loader active inline='centered' />}

@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { getSelectedTechniqueData } from '../../actions/index';
 import { Button, Image, Modal, Form, Input } from 'semantic-ui-react';
 
 class EditTechniqueModal extends Component {
@@ -34,13 +36,16 @@ class EditTechniqueModal extends Component {
 
     handleSave = (event) => {
         // Fire off change data in firebase action
-        this.props.editTechnique(this.props.selectedTechnique.techId, this.state.descriptionChanges)
-        .then(this.handleClose());
+        this.props.editTechnique(
+            this.props.selectedTechnique.techId, 
+            this.state.descriptionChanges,
+            this.state.nameChanges,
+            this.state.imageUrlChanges,
+        ).catch(function(e) {console.log(e)})
+        .then(this.handleClose())
+        .then(this.props.getSelectedTechniqueData(this.props.techId, this.props.techniques));
 
-        // Error handling
-
-        // Refetch data
-        
+        // Error handling        
     }
 
     onInputChange = (event, inputId) => {
@@ -53,11 +58,11 @@ class EditTechniqueModal extends Component {
     }
 
     resetFields = () => {
-        this.setState({
+        this.setState(prevState => ({
             nameChanges: this.props.selectedTechnique.techName,
             imageUrlChanges: this.props.selectedTechnique.techImgUrl,
             descriptionChanges: this.props.selectedTechnique.techDesc,
-        });
+        }));
     }
 
     render() {
@@ -75,13 +80,13 @@ class EditTechniqueModal extends Component {
                             <Form.Field>
                                 <label>Technique Name:</label>
                                 <Input 
-                                    defaultValue={this.state.nameChanges}
+                                    defaultValue={selectedTechnique.techName}
                                     onChange={(event) => this.onInputChange(event, "name")} />
                             </Form.Field>
                             <Form.Field>
                                 <label>Image URL:</label>
                                 <Input 
-                                    defaultValue={this.state.nameChanges}
+                                    defaultValue={selectedTechnique.imgUrl}
                                     onChange={(event) => this.onInputChange(event, "imageUrl")} />                                
                             </Form.Field>
                             <Form.Field>
@@ -107,4 +112,5 @@ class EditTechniqueModal extends Component {
     }
 }
 
-export default EditTechniqueModal;
+
+export default EditTechniqueModal = connect(null, { getSelectedTechniqueData })(EditTechniqueModal);

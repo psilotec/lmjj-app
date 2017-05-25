@@ -3,7 +3,7 @@ import { Card, Image, Grid, Header, Label } from 'semantic-ui-react';
 
 import EditTechniqueModal from'../techniques/edit_technique_modal';
 
-const TechniqueCard = ({ selectedTechnique, editTechnique }) => {
+const TechniqueCard = ({ selectedTechnique, editTechnique, techniques, techId}) => {
     const src = 'https://s3.amazonaws.com/miscbucket444/lmjjshot.png';
     return (
         <Grid>
@@ -14,7 +14,7 @@ const TechniqueCard = ({ selectedTechnique, editTechnique }) => {
                             <Header size='medium'>{selectedTechnique.techName}</Header>
                         </Card.Content>
                         <Label attached='top right'>
-                            <EditTechniqueModal selectedTechnique={selectedTechnique} editTechnique={editTechnique} />
+                            <EditTechniqueModal selectedTechnique={selectedTechnique} editTechnique={editTechnique} techniques={techniques} techId={techId} />
                         </Label>
                         <Card.Content>
                             <Image className='technique-image' src={src} centered />
