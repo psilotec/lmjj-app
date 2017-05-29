@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+
+import CodeMirror from 'react-codemirror';
+import 'codemirror/mode/markdown/markdown';
 import { getSelectedTechniqueData } from '../../actions/index';
 import { Button, Image, Modal, Form, Input } from 'semantic-ui-react';
 
@@ -57,6 +60,13 @@ class EditTechniqueModal extends Component {
         });
     }
 
+    onEditorChange(content) {
+        // Store content in this.state
+        this.setState({
+            descriptionChanges: content
+        });
+    }
+
     resetFields = () => {
         this.setState(prevState => ({
             nameChanges: this.props.selectedTechnique.techName,
@@ -91,9 +101,13 @@ class EditTechniqueModal extends Component {
                             </Form.Field>
                             <Form.Field>
                                 <label>Technique Description:</label>
-                                <Input 
+                                {/*<Input 
                                     defaultValue={selectedTechnique.techDesc}
-                                    onChange={(event) => this.onInputChange(event, "description")} />                                
+                                    onChange={(event) => this.onInputChange(event, "description")} />*/}
+                                <CodeMirror
+                                    value={selectedTechnique.techDesc}
+                                    options={{mode: 'markdown', lineNumbers: true}}
+                                    onChange={this.onEditorChange.bind(this)} />
                             </Form.Field>
                         </Form>            
                     </Modal.Description>
