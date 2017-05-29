@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 import CodeMirror from 'react-codemirror';
 import 'codemirror/mode/markdown/markdown';
+import 'codemirror/lib/codemirror.css';
 import { getSelectedTechniqueData } from '../../actions/index';
 import { Button, Image, Modal, Form, Input } from 'semantic-ui-react';
 
@@ -14,7 +15,7 @@ class EditTechniqueModal extends Component {
         this.state = {
             modalOpen: false,
             nameChanges: '',
-            imageUrlChanges: '',
+            imgUrlChanges: '',
             descriptionChanges: '',
         };
     }
@@ -43,8 +44,8 @@ class EditTechniqueModal extends Component {
             this.props.selectedTechnique.techId, 
             this.state.descriptionChanges,
             this.state.nameChanges,
-            this.state.imageUrlChanges,
-        ).catch(function(e) {console.log(e)})
+            this.state.imgUrlChanges,
+        ).catch(function(error) {console.log(error)})
         .then(this.handleClose())
         .then(this.props.getSelectedTechniqueData(this.props.techId, this.props.techniques));
 
@@ -70,7 +71,7 @@ class EditTechniqueModal extends Component {
     resetFields = () => {
         this.setState(prevState => ({
             nameChanges: this.props.selectedTechnique.techName,
-            imageUrlChanges: this.props.selectedTechnique.techImgUrl,
+            imgUrlChanges: this.props.selectedTechnique.imgUrl,
             descriptionChanges: this.props.selectedTechnique.techDesc,
         }));
     }
@@ -97,13 +98,10 @@ class EditTechniqueModal extends Component {
                                 <label>Image URL:</label>
                                 <Input 
                                     defaultValue={selectedTechnique.imgUrl}
-                                    onChange={(event) => this.onInputChange(event, "imageUrl")} />                                
+                                    onChange={(event) => this.onInputChange(event, "imgUrl")} />                                
                             </Form.Field>
                             <Form.Field>
                                 <label>Technique Description:</label>
-                                {/*<Input 
-                                    defaultValue={selectedTechnique.techDesc}
-                                    onChange={(event) => this.onInputChange(event, "description")} />*/}
                                 <CodeMirror
                                     value={selectedTechnique.techDesc}
                                     options={{mode: 'markdown', lineNumbers: true}}
