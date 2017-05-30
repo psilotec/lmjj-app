@@ -76,6 +76,10 @@ class EditTechniqueModal extends Component {
         }));
     }
 
+    componentWillUnmount() {
+        this.resetFields();
+    }
+
     render() {
         const { selectedTechnique } = this.props;
         return (    
@@ -109,7 +113,9 @@ class EditTechniqueModal extends Component {
                             </Form.Field>
                         </Form>            
                     </Modal.Description>
-                <Image wrapped size='small' src='/assets/images/wireframe/image.png' />
+                {(this.state.imgUrlChanges !== '') ? 
+                    <Image wrapped size='medium' src={this.state.imgUrlChanges} /> :
+                    ''}
                 </Modal.Content>
                 <Modal.Actions>
                     <Button onClick={this.handleClose}>
