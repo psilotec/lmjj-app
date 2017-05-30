@@ -1,5 +1,6 @@
 import React from 'react';
 import { Card, Image, Grid, Header, Label } from 'semantic-ui-react';
+import ReactMarkdown from 'react-markdown';
 
 import EditTechniqueModal from'../techniques/edit_technique_modal';
 
@@ -20,7 +21,7 @@ const TechniqueCard = ({ selectedTechnique, editTechnique, techniques, techId}) 
                         </Card.Content>
                         <Card.Content>
                             <Card.Description>
-                                {selectedTechnique.techDesc}
+                                <ReactMarkdown source={selectedTechnique.techDesc} escapeHtml={true} />
                             </Card.Description>
                         </Card.Content>
                     </Card>
