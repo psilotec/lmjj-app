@@ -25,6 +25,8 @@ class EditTechniqueModal extends Component {
     }
     
     handleOpen = (event) => {
+        this.resetFields();
+
         this.setState({
             modalOpen: true,
         })
