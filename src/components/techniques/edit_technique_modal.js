@@ -109,12 +109,13 @@ class EditTechniqueModal extends Component {
                                 <CodeMirror
                                     value={selectedTechnique.techDesc}
                                     options={{mode: 'markdown', lineNumbers: true}}
-                                    onChange={this.onEditorChange.bind(this)} />
+                                    onChange={this.onEditorChange.bind(this)}
+                                    className={"codeMirrorTechDesc"} />
                             </Form.Field>
                         </Form>            
                     </Modal.Description>
                 {(this.state.imgUrlChanges !== '') ? 
-                    <Image wrapped size='medium' src={this.state.imgUrlChanges} /> :
+                    <Image className={"techImgPreview"} wrapped size='medium' src={this.state.imgUrlChanges} /> :
                     ''}
                 </Modal.Content>
                 <Modal.Actions>
