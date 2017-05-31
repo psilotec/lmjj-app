@@ -20,7 +20,7 @@ const TechniqueCard = ({ selectedTechnique, editTechnique, techniques, techId}) 
                             <Image className='technique-image' src={selectedTechnique.imgUrl} centered />
                         </Card.Content>
                         <Card.Content>
-                            <Card.Description>
+                            <Card.Description className={"reactMarkdownContainer"}>
                                 <ReactMarkdown source={selectedTechnique.techDesc} escapeHtml={true} />
                             </Card.Description>
                         </Card.Content>
