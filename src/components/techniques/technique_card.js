@@ -1,8 +1,9 @@
 import React from 'react';
-import { Card, Image, Grid, Header, Label } from 'semantic-ui-react';
+import { Card, Grid, Header, Label } from 'semantic-ui-react';
 import ReactMarkdown from 'react-markdown';
 
 import EditTechniqueModal from'../techniques/edit_technique_modal';
+import TechniqueVideoModal from '../techniques/technique_video_modal';
 
 const TechniqueCard = ({ selectedTechnique, editTechnique, techniques, techId}) => {
     return (
@@ -14,11 +15,11 @@ const TechniqueCard = ({ selectedTechnique, editTechnique, techniques, techId}) 
                             <Header size='medium'>{selectedTechnique.techName}</Header>
                         </Card.Content>
                         <Label attached='top right'>
+                            <TechniqueVideoModal selectedTechnique={selectedTechnique} />
+                        </Label>
+                        <Label attached='top left'>
                             <EditTechniqueModal selectedTechnique={selectedTechnique} editTechnique={editTechnique} techniques={techniques} techId={techId} />
                         </Label>
-                        <Card.Content>
-                            <Image className='technique-image' src={selectedTechnique.imgUrl} centered />
-                        </Card.Content>
                         <Card.Content>
                             <Card.Description className={"reactMarkdownContainer"}>
                                 <ReactMarkdown source={selectedTechnique.techDesc} escapeHtml={true} />
