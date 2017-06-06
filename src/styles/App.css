@@ -59,10 +59,11 @@
 .techniquecontainer-flex {
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: baseline;
   justify-content: center;
   height: 85vh;
   width: 100vw;
+  margin-top: 20px;
 }
 
 /* Technique */
@@ -83,7 +84,7 @@
 .ui.card>.content.technique-header {
   background-color: #f9f9f9;
 }
-60
+
 .reactMarkdownContainer {
   text-align: left;
 }
