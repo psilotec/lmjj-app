@@ -59,15 +59,15 @@ const directionalNavigate = (techId, techniques, direction) => {
   }
 };
 
-const editTechnique = (techId, techDesc, techName, imgUrl) => {
+const editTechnique = (techId, techDesc, techName, vidUrl) => {
     let propsToUpdate = {
         techDesc,
         techName,
     };
 
-    // Allow update to Firebase even if an imgUrl is not given
-    if(imgUrl !== undefined) {
-        propsToUpdate["imgUrl"] = imgUrl;
+    // Allow update to Firebase even if an vidUrl is not given
+    if(vidUrl !== undefined) {
+        propsToUpdate["vidUrl"] = vidUrl;
     }
 
     return dispatch => {

@@ -72,11 +72,6 @@
 }
 
 /* TechniqueCard */
-.technique-image {
-  max-height: 30vh;
-  max-width: 60vw;
-}
-
 .techniquecard {
   min-width: 65vw;
 }
@@ -95,6 +90,6 @@
   max-width: 500px;
 }
 
-.techImgPreview {
+.techVidPreview {
   margin-left: 10px;
 }

@@ -34,7 +34,7 @@ export default class TechniqueVideoModal extends Component {
             >
                 <Modal.Header>{selectedTechnique.techName}</Modal.Header>
                 <Modal.Content image>
-                    <Image className='technique-image' src={selectedTechnique.imgUrl} centered />
+                    <Image src={selectedTechnique.vidUrl} centered />
                 </Modal.Content>
             </Modal>
         );
