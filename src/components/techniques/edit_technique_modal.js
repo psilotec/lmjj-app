@@ -15,7 +15,7 @@ class EditTechniqueModal extends Component {
         this.state = {
             modalOpen: false,
             nameChanges: '',
-            vidUrlChanges: '',
+            youtubeIdChanges: '',
             descriptionChanges: '',
         };
     }
@@ -46,7 +46,7 @@ class EditTechniqueModal extends Component {
             this.props.selectedTechnique.techId, 
             this.state.descriptionChanges,
             this.state.nameChanges,
-            this.state.vidUrlChanges,
+            this.state.youtubeIdChanges,
         ).catch(function(error) {console.log(error)})
         .then(this.handleClose())
         .then(this.props.getSelectedTechniqueData(this.props.techId, this.props.techniques));
@@ -73,7 +73,7 @@ class EditTechniqueModal extends Component {
     resetFields = () => {
         this.setState(prevState => ({
             nameChanges: this.props.selectedTechnique.techName,
-            vidUrlChanges: this.props.selectedTechnique.vidUrl,
+            youtubeIdChanges: this.props.selectedTechnique.youtubeId,
             descriptionChanges: this.props.selectedTechnique.techDesc,
         }));
     }
@@ -101,10 +101,10 @@ class EditTechniqueModal extends Component {
                                     onChange={(event) => this.onInputChange(event, "name")} />
                             </Form.Field>
                             <Form.Field>
-                                <label>Video URL:</label>
+                                <label>YouTube ID:</label>
                                 <Input 
-                                    defaultValue={selectedTechnique.vidUrl}
-                                    onChange={(event) => this.onInputChange(event, "vidUrl")} />                                
+                                    defaultValue={selectedTechnique.youtubeId}
+                                    onChange={(event) => this.onInputChange(event, "youtubeId")} />                                
                             </Form.Field>
                             <Form.Field>
                                 <label>Technique Description:</label>
@@ -116,8 +116,8 @@ class EditTechniqueModal extends Component {
                             </Form.Field>
                         </Form>            
                     </Modal.Description>
-                {(this.state.vidUrlChanges !== '') ? 
-                    <Image className={"techVidPreview"} wrapped size='medium' src={this.state.vidUrlChanges} /> :
+                {(this.state.youtubeIdChanges !== '') ? 
+                    <Image className={"techVidPreview"} wrapped size='medium' src={`https://i.ytimg.com/vi/${this.state.youtubeIdChanges}/hqdefault.jpg`} /> :
                     ''}
                 </Modal.Content>
                 <Modal.Actions>
