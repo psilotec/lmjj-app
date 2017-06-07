@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import Youtube from 'react-youtube';
 
-import { Image, Modal } from 'semantic-ui-react';
+import { Modal } from 'semantic-ui-react';
 
 export default class TechniqueVideoModal extends Component {
     constructor(props) {
@@ -34,7 +35,7 @@ export default class TechniqueVideoModal extends Component {
             >
                 <Modal.Header>{selectedTechnique.techName}</Modal.Header>
                 <Modal.Content image>
-                    <Image src={selectedTechnique.youtubeId} centered />
+                    <Youtube videoId={selectedTechnique.youtubeId} />
                 </Modal.Content>
             </Modal>
         );
