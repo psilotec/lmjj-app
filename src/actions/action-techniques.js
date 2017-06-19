@@ -59,8 +59,28 @@ const directionalNavigate = (techId, techniques, direction) => {
   }
 };
 
+const editTechnique = (techId, techDesc, techName, youtubeId) => {
+    let propsToUpdate = {
+        techDesc,
+        techName,
+    };
+
+    // Allow update to Firebase even if an youtubeId is not given
+    if(youtubeId !== undefined) {
+        propsToUpdate["youtubeId"] = youtubeId;
+    }
+
+    return dispatch => {
+        return new Promise((resolve, reject) => {
+            Techniques.child(techId).update(propsToUpdate)
+            .then(() => resolve());
+        })
+    } 
+};
+
 export {
     fetchTechniques,
     getSelectedTechniqueData,
     directionalNavigate,
+    editTechnique,
 };

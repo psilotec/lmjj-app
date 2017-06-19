@@ -24,11 +24,7 @@ const Header = () => {
                 </a>
                 <Menu.Menu position="right">
                     <Dropdown icon="ellipsis vertical" className="item">
-                        <Dropdown.Menu>
-                            <Dropdown.Item>
-                                <Icon name='edit' />
-                                Edit Technique
-                            </Dropdown.Item>
+                        <Dropdown.Menu>                           
                             <Dropdown.Item>    
                                 <Icon name='settings' />
                                 Admin Console

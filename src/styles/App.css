@@ -3,6 +3,15 @@
   background-color: #f9f9f9;
 }
 
+/* Welcome */
+.welcomeLogo-flex {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 80vh;
+}
+
 /* BeltListContainer */
 .flexwrap {
   display: flex;
@@ -50,10 +59,11 @@
 .techniquecontainer-flex {
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: baseline;
   justify-content: center;
   height: 85vh;
   width: 100vw;
+  margin-top: 20px;
 }
 
 /* Technique */
@@ -62,15 +72,24 @@
 }
 
 /* TechniqueCard */
-.technique-image {
-  max-height: 30vh;
-  max-width: 60vw;
-}
-
 .techniquecard {
   min-width: 65vw;
 }
 
 .ui.card>.content.technique-header {
   background-color: #f9f9f9;
+}
+
+.reactMarkdownContainer {
+  text-align: left;
+}
+
+/* EditTechniqueModal */
+
+.codeMirrorTechDesc {
+  max-width: 500px;
+}
+
+.techVidPreview {
+  margin-left: 10px;
 }
